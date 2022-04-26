@@ -13,7 +13,7 @@ RSpec.describe Notification, type: :model do
       notification = FactoryBot.build_stubbed(:notification)
       notification.phone = nil
       notification.body = nil
-      notification.source_app = nill
+      notification.source_app = nil
       expect(notification).to_not be_valid
     end
   end
