@@ -5,7 +5,7 @@ FactoryBot.define do
     source_app { "some_app" }
   end
 
-  factory :second_notification do
+  factory :notification2 do
     phone { "123-123-1234" }
     body { "My Message notif 2" }
     source_app { "some_app" }
