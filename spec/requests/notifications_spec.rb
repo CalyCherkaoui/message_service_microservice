@@ -6,15 +6,14 @@ RSpec.describe "Notifications", type: :request do
       "ACCEPT" => "application/json"
     }
 
-    post "/notifications",
-    {
-      notification: {
-        phone: "123-123-1234",
-        body: "Message",
-        source_app: "app_name"
+    post "/notifications", 
+    :params => {
+      :notification => {
+        :phone => "123-123-1234",
+        :body => "Message",
+        :source_app => "app_name"
       }
-    },
-    headers
+    }, :headers => headers
     
     expect(response.content_type).to eq("application/json")
     expect(response).to have_http_status(:created)
