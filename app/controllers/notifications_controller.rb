@@ -3,7 +3,7 @@ class NotificationsController < ApplicationController
     @notification = Notification.create(params.permit(:phone, :body, :source_app))
 
     respond_to do |format|
-      format.json{
+      format.json {
         render action: 'show', status: :created, location: @notification
       }
     end
@@ -12,6 +12,12 @@ class NotificationsController < ApplicationController
 
   def show
   end
+
+  private
+
+    def notification_params
+      params.permit(:phone, :body, :source_app)
+    end
 
 end
 
