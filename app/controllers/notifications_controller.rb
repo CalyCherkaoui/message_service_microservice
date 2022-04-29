@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   def create
-    @notification = Notification.create(params.permit(:phone, :body, :source_app))
+    @notification = Notification.new(notification_params)
 
     respond_to do |format|
       if @notification.save
@@ -22,7 +22,7 @@ class NotificationsController < ApplicationController
   private
 
     def notification_params
-      params.permit(:phone, :body, :source_app)
+      params.require(:notification).permit(:phone, :body, :source_app)
     end
 
 end

@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe "Notifications", type: :request do
   it "create a notification" do
     headers = {
-      "ACCEPT" => "application/json"
+      "ACCEPT" => "application/json",
+      "Content-Type" => "application/json"
     }
 
     post "/notifications", 
