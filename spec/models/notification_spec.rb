@@ -16,5 +16,11 @@ RSpec.describe Notification, type: :model do
       notification.source_app = nil
       expect(notification).to_not be_valid
     end
+
+    it 'requires the phone attribute to contain a string of integers' do
+      notification = FactoryGirl.build_stubbed(:notification)
+      notification.phone = "notavalidnumber"
+      expect(notification).to_not be_valid
+    end
   end
 end
