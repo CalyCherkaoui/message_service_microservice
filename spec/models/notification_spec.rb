@@ -22,5 +22,10 @@ RSpec.describe Notification, type: :model do
       notification.phone = "notavalidnumber"
       expect(notification).to_not be_valid
     end
+
+    it 'requires the phone attribute to only have 10 characters' do
+      @notification.phone = "12345678901"
+      expect(@notification).to_not be_valid
+    end
   end
 end
